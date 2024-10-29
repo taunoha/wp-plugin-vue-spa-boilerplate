@@ -63,7 +63,7 @@ get_footer();
 
 ## ❗️ Deploy
 
-The `dist` folder will be overridden each time you run `npm run build`. Do not commit this folder to version control. If you use any CI/CD pipeline, make sure to trigger the build process as part of your deployment workflow.
+The `dist` folder will be overridden each time you run `npm run build` or `npm run dev`. Do not commit this folder to version control. If you use any CI/CD pipeline, make sure to trigger the build process as part of your deployment workflow.
   
 ## 🌶️ Auto-imports
 
