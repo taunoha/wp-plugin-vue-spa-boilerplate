@@ -34,6 +34,18 @@ The SPA approach here provides a fluid, app-like experience while still leveragi
 
 The slug will be used to initialize the application: ``example.com/members/`` or ``example.com/partner/self-service/``
 
+## Get Started
+
+To get started, create a new file in your theme folder ``page-{plugin-shortcode}.php`` with the minimal content of:
+
+```php
+<?php
+
+get_header();
+echo do_shortcode('[{plugin-shortcode}]');
+get_footer();
+```
+
 ## Development
 
 ### 👉  `npm run dev`
@@ -48,18 +60,6 @@ The slug will be used to initialize the application: ``example.com/members/`` or
 ### 👉  `npm run build`
 - Builds production code inside `dist` folder.
 - Will extract translatable strings from your code and generate the `languages/messages.php` file.
-
-## Get Started
-
-To get started, create a new file in your theme folder ``page-{plugin-shortcode}.php`` with the minimal content of:
-
-```php
-<?php
-
-get_header();
-echo do_shortcode('[{plugin-shortcode}]');
-get_footer();
-```
 
 ## ❗️ Deploy
 
