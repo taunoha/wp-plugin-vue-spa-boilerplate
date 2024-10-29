@@ -25,7 +25,7 @@ const questions = [
     initial: "/my-app",
     validate: (text) =>
       text.match(/[^A-Za-z0-9\/-\s]/g)
-        ? "Slug allows alphanumeric English characters, forward slashes, underscores and dashes."
+        ? "Path allows alphanumeric English characters, forward slashes, underscores and dashes."
         : true,
   },
 ];
