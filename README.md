@@ -32,7 +32,7 @@ The SPA approach here provides a fluid, app-like experience while still leveragi
   * Plugin name (e.g. "Member Directory")
   * Application path (e.g. "/members", "/partner/self-service")
 
-The slug will be used to initialize the application: ``example.com/members/`` or ``example.com/partner/self-service/``
+The path will be used to initialize the application: ``example.com/members/`` or ``example.com/partner/self-service/``
 
 ## Get Started
 
