@@ -2,5 +2,4 @@
 
 defined('ABSPATH') or die();
 
-return array(
-);
+return array();
