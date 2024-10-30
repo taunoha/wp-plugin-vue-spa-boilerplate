@@ -1,11 +1,14 @@
 import { createWebHistory, createRouter } from "vue-router";
 import { getConfig } from "@wordpress/interactivity";
-import Index from "@/pages/index.vue";
 
 const { baseURL } = getConfig("{plugin-shortcode}");
 
 const routes = [
-  { path: "/", name: "index-page", component: Index },
+  {
+    path: "/",
+    name: "index-page",
+    component: () => import("@/pages/index.vue"),
+  },
   {
     path: "/about",
     name: "about-page",
