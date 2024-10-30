@@ -41,8 +41,7 @@ export default function gettextExtractorForWordpress(options) {
             }
           }),
         ])
-        .parseFilesGlob('./src/**/*.vue')
-        .parseFilesGlob('./src/**/*.js');
+        .parseFilesGlob('./src/**/*.@(vue|js|ts)');
 
       extractor
         .createJsParser([
@@ -54,8 +53,7 @@ export default function gettextExtractorForWordpress(options) {
             }
           }),
         ])
-        .parseFilesGlob('./src/**/*.vue')
-        .parseFilesGlob('./src/**/*.js');
+        .parseFilesGlob('./src/**/*.@(vue|js|ts)');
 
       extractor
         .createJsParser([
@@ -66,8 +64,7 @@ export default function gettextExtractorForWordpress(options) {
             }
           }),
         ])
-        .parseFilesGlob('./src/**/*.vue')
-        .parseFilesGlob('./src/**/*.js');
+        .parseFilesGlob('./src/**/*.@(vue|js|ts)');
 
       extractor
         .createJsParser([
@@ -80,8 +77,7 @@ export default function gettextExtractorForWordpress(options) {
             }
           }),
         ])
-        .parseFilesGlob('./src/**/*.vue')
-        .parseFilesGlob('./src/**/*.js');
+        .parseFilesGlob('./src/**/*.@(vue|js|ts)');
 
       messages = extractor.getMessages();
 
