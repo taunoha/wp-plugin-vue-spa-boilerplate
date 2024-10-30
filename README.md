@@ -67,7 +67,16 @@ The `dist` folder will be overridden each time you run `npm run build` or `npm r
   
 ## 🌶️ Auto-imports
 
-I have set up auto-imports for components, composables, Vue.js APIs, and your utilities inside the ``utils`` folder. You can use these in your application without explicitly importing them.
+I have set up auto-imports for components, composables, Vue.js APIs, and your utilities inside the ``utils`` folder. This includes:
+
+- All components in your ``components`` folder
+- All composables in your ``composables`` folder
+- All utilities in your ``utils`` folder 
+- Core Vue.js APIs (ref, computed, watch, etc.)
+- VueUse composables (useStorage, useMouse, useWindowSize, etc.)
+- Vue Router utilities (useRoute, useRouter, etc.)
+
+You can use these in your application without explicitly importing them. For example:
 
 Contrary to a classic global declaration, it will preserve typings, IDE completions, and hints and only include what is used in your code.
 

@@ -40,15 +40,6 @@ function handleToggleDevServer(status = 'start') {
 async function handleDevServerStop() {
   handleToggleDevServer('stop');
   await new Promise(resolve => setTimeout(resolve, 147));
-  console.log('\n\nStarting build');
-  await new Promise((resolve, reject) => exec(`npm run build`, (error, stdout) => {
-    if (error) {
-      reject(error);
-    } else {
-      resolve(stdout);
-      console.log(stdout);
-    }
-  }));
 }
 
 async function handleDevServerStart() {

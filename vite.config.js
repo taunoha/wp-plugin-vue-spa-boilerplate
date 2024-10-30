@@ -19,7 +19,12 @@ export default defineConfig({
   plugins: [
     vue(),
     AutoImport({
-      imports: ['vue', '@vueuse/core', unheadVueComposablesImports],
+      imports: [
+        'vue',
+        '@vueuse/core',
+        'vue-router',
+        unheadVueComposablesImports
+      ],
       dirs: [
         './src/utils/**',
         './src/composables/**',
