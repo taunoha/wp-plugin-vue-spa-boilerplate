@@ -48,16 +48,16 @@ get_footer();
 
 ### Structure
 ```
-├── wp-content
-    ├─ plugins
-    │  └─ {your-plugin-folder}
-    │     ├─ src
-    │     │  └─ App.vue
-    │     ├─ package.json
-    │     └─ ld-{plugin-shortcode}.php
-    └─ themes
-       └─ {your-theme-folder}
-          └─ page-{plugin-shortcode}.php
+└─ wp-content
+   ├─ plugins
+   │  └─ {your-plugin-folder}
+   │     ├─ src
+   │     │  └─ App.vue
+   │     ├─ package.json
+   │     └─ ld-{plugin-shortcode}.php
+   └─ themes
+      └─ {your-theme-folder}
+         └─ page-{plugin-shortcode}.php
 ```
 ## Development
 
