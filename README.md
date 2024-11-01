@@ -46,6 +46,19 @@ echo do_shortcode('[{plugin-shortcode}]');
 get_footer();
 ```
 
+### Structure
+```
+├── wp-content
+    ├─ plugins
+    │  └─ {your-plugin-folder}
+    │     ├─ src
+    │     │  └─ App.vue
+    │     ├─ package.json
+    │     └─ ld-{plugin-shortcode}.php
+    └─ themes
+       └─ {your-theme-folder}
+          └─ page-{plugin-shortcode}.php
+```
 ## Development
 
 ### 👉  `npm run dev`
