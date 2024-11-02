@@ -71,13 +71,13 @@ function ld_{plugin}_shortcode($atts)
 
   $attributes = shortcode_atts(array(), $atts);
   $hmrUrl = "";
-
-  wp_enqueue_style('{plugin-shortcode}', LD_{PLUGIN}_URL . 'dist/{plugin-shortcode}.css', false, filemtime(LD_{PLUGIN}_DIR . '/dist/{plugin-shortcode}.js'), 'screen');
   
   if( !empty($hmrUrl) ) {
     wp_enqueue_script('{plugin-shortcode}', esc_url($hmrUrl), false, null, true);
   } else {
-    wp_enqueue_script('{plugin-shortcode}', LD_{PLUGIN}_URL . 'dist/{plugin-shortcode}.js', false, filemtime(LD_{PLUGIN}_DIR . '/dist/{plugin-shortcode}.js'), true);
+    $filemtime = filemtime(LD_{PLUGIN}_DIR . '/dist/{plugin-shortcode}.js'); 
+    wp_enqueue_script('{plugin-shortcode}', LD_{PLUGIN}_URL . 'dist/{plugin-shortcode}.js', false, $filemtime, true);
+    wp_enqueue_style('{plugin-shortcode}', LD_{PLUGIN}_URL . 'dist/{plugin-shortcode}.css', false, $filemtime, 'screen');
   }
 
   ob_start();
