@@ -27,6 +27,12 @@ module.exports = {
         "vue/multi-word-component-names": "off",
       }
     },
+    {
+      "files": ["src/components/*.vue"],
+      "rules": {
+        "vue/multi-word-component-names": "error",
+      }
+    },
   ],
   globals: {
     "wp": "readable"
