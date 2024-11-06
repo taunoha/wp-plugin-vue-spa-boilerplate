@@ -109,7 +109,14 @@ Contrary to a classic global declaration, it will preserve typings, IDE completi
 
 ## 🌶️ Hot Module Replacement (HMR)
 
-Hot Module Replacement (HMR) is a feature that enables real-time updates in your running application without requiring a full page reload.
+Hot Module Replacement (HMR) is a development feature that automatically updates your application in real-time as you modify your code. When you run `npm run dev`, HMR will:
+
+- Instantly reflect JavaScript and CSS changes in your browser without a full page reload
+- Preserve the application state during updates
+- Automatically inject new styles when you modify CSS
+- Significantly speed up your development workflow
+
+HMR is automatically enabled in development mode (`npm run dev`) and disabled in production builds. You don't need any additional configuration to use this feature.
 
 ## &lt;ErrorBoundary&gt; component
 
