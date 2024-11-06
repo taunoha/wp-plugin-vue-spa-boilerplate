@@ -63,6 +63,16 @@ get_footer();
       └─ {your-theme-folder}
          └─ page-{plugin-shortcode}.php
 ```
+
+### Permalinks and Rewrite Rules
+
+This plugin implements custom rewrite rules to handle SPA routing. These rules are automatically registered when the plugin is activated. However, if you experience any 404 errors or routing issues:
+
+1. Go to WP Admin > Settings > Permalinks
+2. Simply click "Save Changes" to flush the rewrite rules cache
+
+This step ensures WordPress properly recognizes the plugin's custom URL structure.
+
 ## Development
 
 ### 👉  `npm run dev`

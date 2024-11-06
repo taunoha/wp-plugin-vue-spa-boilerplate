@@ -38,6 +38,84 @@ function ld_{plugin}_body_classes($classes)
 }
 add_filter('body_class', 'ld_{plugin}_body_classes');
 
+function ld_{plugin}_pre_get_posts($query)
+{
+  if( is_admin() ) {
+    return;
+  }
+
+  if( !get_query_var('ld_{plugin}') ) {
+    return;
+  }
+
+  if ($query->is_main_query())
+  {
+    $query->is_home = false;
+    $query->is_archive = false;
+    $query->is_page = true;
+    $query->is_singular = true;
+
+    // Prevent any post querying
+    $query->set('posts_per_page', 0);
+    $query->set('no_found_rows', true);
+    
+    // Clear objects to prevent additional queries
+    $query->queried_object = null;
+    $query->queried_object_id = null;
+  } 
+}
+add_action('pre_get_posts', 'ld_{plugin}_pre_get_posts');
+
+function ld_{plugin}_skip_query($posts, $query)
+{
+  if( is_admin() ) {
+    return $posts;
+  }
+  
+  if ($query->is_main_query() && get_query_var('ld_{plugin}'))
+  {
+    $dummy_post = new stdClass();
+    $dummy_post->ID = '{plugin-shortcode}';
+    $dummy_post->post_author = 0;
+    $dummy_post->post_date = current_time('mysql');
+    $dummy_post->post_date_gmt = current_time('mysql', 1);
+    $dummy_post->post_content = '';
+    $dummy_post->post_title = '{plugin-name}';
+    $dummy_post->post_excerpt = '';
+    $dummy_post->post_status = 'publish';
+    $dummy_post->comment_status = 'closed';
+    $dummy_post->ping_status = 'closed';
+    $dummy_post->post_password = '';
+    $dummy_post->post_name = '';
+    $dummy_post->to_ping = '';
+    $dummy_post->pinged = '';
+    $dummy_post->post_modified = current_time('mysql');
+    $dummy_post->post_modified_gmt = current_time('mysql', 1);
+    $dummy_post->post_content_filtered = '';
+    $dummy_post->post_parent = 0;
+    $dummy_post->guid = '';
+    $dummy_post->menu_order = 0;
+    $dummy_post->post_type = 'page';
+    $dummy_post->post_mime_type = '';
+    $dummy_post->comment_count = 0;
+    $dummy_post->filter = 'raw';
+
+    return array($dummy_post);
+  }
+
+  return $posts;
+}
+add_filter('posts_pre_query', 'ld_{plugin}_skip_query', 10, 2);
+
+function ld_{plugin}_prevent_404($handled)
+{
+  if (get_query_var('ld_vue_spa')) {
+      return true;
+  }
+  return $handled;
+}
+add_filter('pre_handle_404', 'ld_{plugin}_prevent_404', 10, 2);
+
 function ld_{plugin}_template_include($template)
 {
   if (get_query_var('ld_{plugin}')) {
