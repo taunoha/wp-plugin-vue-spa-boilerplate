@@ -109,7 +109,7 @@ add_filter('posts_pre_query', 'ld_{plugin}_skip_query', 10, 2);
 
 function ld_{plugin}_prevent_404($handled)
 {
-  if (get_query_var('ld_vue_spa')) {
+  if (get_query_var('ld_{plugin}')) {
       return true;
   }
   return $handled;
