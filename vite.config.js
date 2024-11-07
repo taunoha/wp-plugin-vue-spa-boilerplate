@@ -30,6 +30,9 @@ export default defineConfig({
         './src/composables/**',
       ],
       vueTemplate: true,
+      eslintrc: {
+        enabled: true,
+      },
     }),
     Components({
       deep: true,
