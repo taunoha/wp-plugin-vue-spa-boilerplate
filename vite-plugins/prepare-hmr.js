@@ -40,6 +40,17 @@ function handleToggleDevServer(status = 'start') {
 async function handleDevServerStop() {
   handleToggleDevServer('stop');
   await new Promise(resolve => setTimeout(resolve, 147));
+
+  console.log('\n\nBuilding production files...');
+  
+  await new Promise(resolve => exec('vite build', (error) => {
+    if (error) {
+      console.error(error);
+    } else {
+      console.log('Done.');
+    }
+    resolve();
+  }));
 }
 
 async function handleDevServerStart() {

@@ -5,7 +5,7 @@ import router from "./router";
 import App from "./App.vue";
 import { setLocaleData } from "@/utils/i18n";
 
-import "./assets/main.scss";
+import "./assets/scss/main.scss";
 
 const { translations } = getConfig("{plugin-shortcode}");
 
