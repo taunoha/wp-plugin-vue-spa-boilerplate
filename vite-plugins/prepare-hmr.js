@@ -42,7 +42,7 @@ async function handleDevServerStop() {
   await new Promise(resolve => setTimeout(resolve, 147));
 
   console.log('\n\nBuilding production files...');
-  
+
   await new Promise(resolve => exec('vite build', (error) => {
     if (error) {
       console.error(error);
@@ -65,7 +65,14 @@ async function handleDevServerStart() {
 export default function prepareHmr() {
   return {
     name: 'prepareHmr',
-    apply: 'serve',
+    buildStart() {
+
+      if (this.meta.watchMode) {
+        return;
+      }
+
+      handleToggleDevServer('stop');
+    },
     configureServer(server) {
 
       _server = server;
