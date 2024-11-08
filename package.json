@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "vite",
-    "build": "npm run lint && vite build",
+    "build": "eslint ./src --fix && vite build",
     "lint": "npx stylelint ./src/assets/scss/**/*.scss --fix && npx stylelint ./src/{components,pages}/**/*.vue --fix && eslint ./src --fix",
     "rename": "node rename.js && npm run build"
   },
