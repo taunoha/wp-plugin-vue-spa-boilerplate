@@ -172,3 +172,12 @@ const message = __("This is a message from i18n!");
   </article>
 </template>
 ```
+
+### Translation Plugin Compatibility
+
+This plugin is compatible with popular WordPress translation plugins like WPML, Polylang, or TranslatePress. The translation functions (`__()`, `_n()`, `_x()`, etc.) integrate with WordPress's translation ecosystem, allowing you to:
+
+- Extract translatable strings using the plugins' string scanning features
+- Manage translations through the plugins' translation interfaces
+- Use the plugins' language switching functionality
+- Maintain translations across different language versions of your site
