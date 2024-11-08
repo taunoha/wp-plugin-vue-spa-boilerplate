@@ -105,6 +105,19 @@ I have set up auto-imports for components, composables, Vue.js APIs, and your ut
 
 You can use these in your application without explicitly importing them. For example:
 
+```
+components
+├─ Icon
+│  └─ Arrow.vue
+└─ ErrorBoundary.vue
+```
+
+You can use these components in your templates as:
+```html
+<ErrorBoundary />
+<IconArrow />
+```
+
 Contrary to a classic global declaration, it will preserve typings, IDE completions, and hints and only include what is used in your code.
 
 ## 🌶️ Hot Module Replacement (HMR)
