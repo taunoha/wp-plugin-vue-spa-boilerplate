@@ -81,11 +81,11 @@ This step ensures WordPress properly recognizes the plugin's custom URL structur
 * Automatically enables HMR
   
 ### 👉  `npm run lint`
-* Checks your source code for programmatic and stylistic errors, and format your code.
+* Check your source code for programmatic and stylistic errors, and format your code.
 * Formats your source code
 
 ### 👉  `npm run build`
-- Checks your source code for programmatic and stylistic errors, and format your code.
+- Check your source code for programmatic and stylistic errors, and format your code.
 - Builds production code inside `dist` folder.
 - Will extract translatable strings from your code and generate the `languages/messages.php` file.
 
