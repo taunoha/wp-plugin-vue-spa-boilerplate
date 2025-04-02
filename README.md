@@ -21,7 +21,7 @@ The SPA approach here provides a fluid, app-like experience while still leveragi
 > [!NOTE]
 > Prerequisites
 > * Familiarity with the command line
-> * Install [Node.js](https://nodejs.org/en) version 20.0 (LTS) or higher LTS
+> * Install [Node.js](https://nodejs.org/en) version 22.0 (LTS) or higher LTS
 
 ### 👉  `npm install`
 * Install the dependencies in the local node_modules folder.
