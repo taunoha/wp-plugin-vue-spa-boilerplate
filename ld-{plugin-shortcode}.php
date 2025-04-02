@@ -129,18 +129,6 @@ function ld_{plugin}_template_include($template)
 }
 add_filter('template_include', 'ld_{plugin}_template_include', 99);
 
-function ld_{plugin}_script_attribute($tag, $handle, $src)
-{
-  if ('{plugin-shortcode}' !== $handle) {
-    return $tag;
-  }
-
-  $tag = '<script type="module" src="' . esc_url($src) . '"></script>';
-
-  return $tag;
-}
-add_filter('script_loader_tag', 'ld_{plugin}_script_attribute', 10, 3);
-
 function ld_{plugin}_shortcode($atts)
 {
   if (is_admin()) {
@@ -151,10 +139,10 @@ function ld_{plugin}_shortcode($atts)
   $hmrUrl = "";
   
   if( !empty($hmrUrl) ) {
-    wp_enqueue_script('{plugin-shortcode}', esc_url($hmrUrl), false, null, true);
+    wp_enqueue_script_module('{plugin-shortcode}', esc_url($hmrUrl), array('@wordpress/interactivity'), null);
   } else {
     $filemtime = filemtime(LD_{PLUGIN}_DIR . '/dist/{plugin-shortcode}.js'); 
-    wp_enqueue_script('{plugin-shortcode}', LD_{PLUGIN}_URL . 'dist/{plugin-shortcode}.js', false, $filemtime, true);
+    wp_enqueue_script_module('{plugin-shortcode}', LD_{PLUGIN}_URL . 'dist/{plugin-shortcode}.js', array('@wordpress/interactivity'), $filemtime);
     wp_enqueue_style('{plugin-shortcode}', LD_{PLUGIN}_URL . 'dist/{plugin-shortcode}.css', false, $filemtime, 'screen');
   }
 
