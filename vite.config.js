@@ -52,13 +52,16 @@ export default defineConfig({
   },
   server: {
     cors: false,
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+    }
   },
   build: {
     lib: {
       name: '{plugin}',
       entry: path.resolve(__dirname, `src/main.js`),
       formats: ['es'],
-      fileName: () => `${filename}.js`
+      fileName: filename
     },
     rollupOptions: {
       output: {
