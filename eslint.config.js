@@ -13,7 +13,9 @@ export default [
   {
     languageOptions: {
       globals: {
-        ...autoImportRules.globals
+        ...autoImportRules.globals,
+        document: 'readonly',
+        window: 'readonly'
       }
     },
     rules: {
