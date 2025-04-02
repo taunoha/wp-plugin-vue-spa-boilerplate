@@ -158,6 +158,8 @@ function ld_{plugin}_shortcode($atts)
     wp_enqueue_style('{plugin-shortcode}', LD_{PLUGIN}_URL . 'dist/{plugin-shortcode}.css', false, $filemtime, 'screen');
   }
 
+  wp_enqueue_script_module('@wordpress/interactivity');
+
   ob_start();
   load_template(LD_{PLUGIN}_DIR . '/blocks/default.php', false, $attributes);
   return ob_get_clean();
