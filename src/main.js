@@ -1,4 +1,4 @@
-import { createHead } from "@unhead/vue";
+import { createHead } from "@unhead/vue/client";
 import { getConfig } from "@wordpress/interactivity";
 import { createApp } from "vue";
 import router from "./router";
