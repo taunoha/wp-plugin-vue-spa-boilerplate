@@ -17,6 +17,7 @@
     "vue-router": "^4.5.0"
   },
   "devDependencies": {
+    "@rollup/plugin-replace": "^6.0.2",
     "@typescript-eslint/eslint-plugin": "^8.29.0",
     "@vitejs/plugin-vue": "^5.2.3",
     "@vue/eslint-config-prettier": "^10.2.0",
