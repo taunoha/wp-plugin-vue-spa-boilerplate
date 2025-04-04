@@ -1,30 +1,21 @@
 import { createWebHistory, createRouter } from "vue-router";
 import { getConfig } from "@wordpress/interactivity";
+import { routes } from "vue-router/auto-routes";
 
 const { baseURL } = getConfig("{plugin-shortcode}");
 
-const routes = [
-  {
-    path: "/",
-    name: "index-page",
-    component: () => import("@/pages/index.vue"),
-  },
-  {
-    path: "/about",
-    name: "about-page",
-    component: () => import("@/pages/about.vue"),
-  },
+const localRoutes = [
   {
     name: "404",
     path: "/:catchAll(.*)",
-    component: () => import("@/pages/404.vue"),
+    component: () => import("@/404.vue"),
   },
 ];
 
 const router = createRouter({
   trailingSlash: true,
   history: createWebHistory(baseURL),
-  routes,
+  routes: [...routes, ...localRoutes],
   scrollBehavior() {
     return { top: 0, behavior: "smooth" };
   },

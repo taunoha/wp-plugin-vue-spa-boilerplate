@@ -33,7 +33,7 @@ export default [
     },
   },
   {
-    files: ["src/pages/*.vue", "src/components/**/*.vue"],
+    files: ["src/pages/**/*.vue", "src/components/**/*.vue", "src/404.vue"],
     rules: {
       "vue/multi-word-component-names": "off",
     }

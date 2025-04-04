@@ -6,6 +6,7 @@ import { unheadVueComposablesImports } from '@unhead/vue';
 import vue from '@vitejs/plugin-vue';
 import AutoImport from 'unplugin-auto-import/vite';
 import Components from 'unplugin-vue-components/vite';
+import VueRouter from 'unplugin-vue-router/vite'
 import { defineConfig } from 'vite';
 import gettextExtractorForWordpress from './vite-plugins/gettext-extractor-for-wordpress.js';
 import prepareHMR from './vite-plugins/prepare-hmr.js';
@@ -20,6 +21,7 @@ export default defineConfig(() => {
       'process.env': env
     },
     plugins: [
+      VueRouter(),
       vue(),
       AutoImport({
         imports: [

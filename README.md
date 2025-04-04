@@ -110,7 +110,8 @@ You can use these in your application without explicitly importing them. For exa
 components
 ├─ Icon
 │  └─ Arrow.vue
-└─ ErrorBoundary.vue
+└─ Error
+|  └──Boundary.vue
 ```
 
 You can use these components in your templates as:
@@ -120,6 +121,18 @@ You can use these components in your templates as:
 ```
 
 Contrary to a classic global declaration, it will preserve typings, IDE completions, and hints and only include what is used in your code.
+
+## File-Based Routing
+
+This project uses Vue Router with a file-based routing approach. Every Vue file inside the `src/pages/` directory creates a corresponding URL (or route) that displays the contents of the file. For example, `src/pages/about.vue` will be accessible at `/about`. The router configuration is automatically generated based on the file structure, and Vue Router's dynamic imports ensure code-splitting to ship the minimum amount of JavaScript for each requested route.
+
+```
+pages/
+├─ about/
+│  └─ [id].vue
+│  └─ index.vue
+└─ index.vue
+```
 
 ## 🌶️ Hot Module Replacement (HMR)
 
