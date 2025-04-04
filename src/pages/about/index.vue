@@ -6,7 +6,11 @@ useHead({
 
 <template>
   <h1>About</h1>
-  <RouterLink to="/">Go to Home</RouterLink>
+  <RouterLink to="/" :aria-label="__('Go to Home')">
+    {{ __("Go to Home") }}
+  </RouterLink>
   <br />
-  <RouterLink to="/about/1">Go to About 1</RouterLink>
+  <RouterLink to="/about/1">
+    {{ __("Go to About 1") }}
+  </RouterLink>
 </template>

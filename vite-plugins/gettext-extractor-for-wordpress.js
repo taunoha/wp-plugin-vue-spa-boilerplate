@@ -1,6 +1,20 @@
 
 import fs from 'fs';
-import { GettextExtractor, JsExtractors } from 'gettext-extractor';
+import {
+  GettextExtractor,
+  JsExtractors,
+  HtmlExtractors,
+} from "gettext-extractor";
+
+const HTML_ATTRIBUTES = [
+  "title",
+  "alt",
+  "placeholder",
+  "label",
+  "aria-label",
+  "aria-description",
+  "aria-placeholder",
+];
 
 const sanitizeText = (text) => text.replace(/\\/g, '\\\\')
   .replace(/\u0008/g, '\\b')
@@ -32,6 +46,12 @@ export default function gettextExtractorForWordpress(options) {
       }
 
       const extractor = new GettextExtractor();
+
+      const htmlAttributes = HTML_ATTRIBUTES.map((attribute) =>
+        HtmlExtractors.elementAttribute("*", `:${attribute}`)
+      );
+    
+      extractor.createHtmlParser(htmlAttributes).parseFilesGlob("./src/**/*.vue");
 
       extractor
         .createJsParser([
@@ -80,26 +100,51 @@ export default function gettextExtractorForWordpress(options) {
         .parseFilesGlob('./src/**/*.@(vue|js|ts)');
 
       messages = extractor.getMessages();
+      
+      const messageKeys = new Set();
 
-      messages.forEach((value) => {
+      const prepareEntity = (value) => {
         const { text, textPlural, context } = value;
-        const _text = sanitizeText(text);
-        const _textPlural = sanitizeText(textPlural || '');
 
-        php.push(`  // ${value.references.join(', ')}`);
+        if( /^props?\./.test(text) ) {
+          return;
+        }
 
-        if (context) {
-          if (textPlural) {
-            php.push(`  "${context}\u0004${_text}" => array(_x("${_text}", '${context}', '${opts.domain}'), _x("${_textPlural}", '${context}', '${opts.domain}')),`);
+        let _text = text.replace(/^__\('(.+)'\)/, "$1");
+        let _textPlural = textPlural ? textPlural.replace(/^__\('(.+)'\)/, "$1") : '';
+
+        _text = sanitizeText(_text);
+        _textPlural = sanitizeText(_textPlural);
+
+        const key = context ? `${context}\u0004${_text}` : _text;
+
+        if (messageKeys.has(key)) {
+          return;
+        }
+
+        messageKeys.add(key);
+
+        if( _textPlural ) {
+          if( context ) {
+            return `"${key}" => array(_x("${_text}", '${context}', '${opts.domain}'), _x("${_textPlural}", '${context}', '${opts.domain}')),`
           } else {
-            php.push(`  "${context}\u0004${_text}" => array(_x("${_text}", '${context}', '${opts.domain}')),`);
+            return `"${key}" => array(__("${_text}", '${opts.domain}'), __("${_textPlural}", '${opts.domain}')),`
           }
         } else {
-          if (textPlural) {
-            php.push(`  "${_text}" => array(__("${_text}", '${opts.domain}'), __("${_textPlural}", '${opts.domain}')),`);
+          if( context ) {
+            return `"${key}" => array(_x("${_text}", '${context}', '${opts.domain}')),`
           } else {
-            php.push(`  "${_text}" => array(__("${_text}", '${opts.domain}')),`);
+            return `"${key}" => array(__("${_text}", '${opts.domain}')),`
           }
+        }
+      }
+
+      messages.forEach((value) => {
+        const entry = prepareEntity(value);
+
+        if( entry ) {
+          php.push(`  // ${value.references.join(', ')}`);
+          php.push(`  ${entry}`);
         }
 
       });
