@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "vite",
-    "build": "eslint ./src --fix && vite build",
-    "lint": "npx stylelint ./src/assets/scss/**/*.scss --fix && npx stylelint ./src/{components,pages}/**/*.vue --fix && eslint ./src --fix",
+    "build": "eslint ./app --fix && vite build",
+    "lint": "npx stylelint ./app/assets/scss/**/*.scss --fix && npx stylelint ./app/{components,pages}/**/*.vue --fix && eslint ./app --fix",
     "rename": "node rename.js && npm run build"
   },
   "type": "module",

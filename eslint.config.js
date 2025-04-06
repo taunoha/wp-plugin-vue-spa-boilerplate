@@ -23,23 +23,23 @@ export default [
     }
   },
   {
-    files: ["src/**/*.ts", "src/**/*.vue", "src/*.mjs", "src/**/*.js"],
+    files: ["app/**/*.ts", "app/**/*.vue", "app/*.mjs", "app/**/*.js"],
     ...prettier,
   },
   {
-    files: ["src/**/*.vue"],
+    files: ["app/**/*.vue"],
     rules: {
       "prettier/prettier": ["error", { htmlWhitespaceSensitivity: "ignore" }],
     },
   },
   {
-    files: ["src/pages/**/*.vue", "src/components/**/*.vue", "src/404.vue"],
+    files: ["app/pages/**/*.vue", "app/components/**/*.vue", "app/404.vue"],
     rules: {
       "vue/multi-word-component-names": "off",
     }
   },
   {
-    files: ["src/components/*.vue"],
+    files: ["app/components/*.vue"],
     rules: {
       "vue/multi-word-component-names": "error",
     }

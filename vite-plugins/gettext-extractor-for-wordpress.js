@@ -51,7 +51,7 @@ export default function gettextExtractorForWordpress(options) {
         HtmlExtractors.elementAttribute("*", `:${attribute}`)
       );
     
-      extractor.createHtmlParser(htmlAttributes).parseFilesGlob("./src/**/*.vue");
+      extractor.createHtmlParser(htmlAttributes).parseFilesGlob("./app/**/*.vue");
 
       extractor
         .createJsParser([
@@ -61,7 +61,7 @@ export default function gettextExtractorForWordpress(options) {
             }
           }),
         ])
-        .parseFilesGlob('./src/**/*.@(vue|js|ts)');
+        .parseFilesGlob('./app/**/*.@(vue|js|ts)');
 
       extractor
         .createJsParser([
@@ -73,7 +73,7 @@ export default function gettextExtractorForWordpress(options) {
             }
           }),
         ])
-        .parseFilesGlob('./src/**/*.@(vue|js|ts)');
+        .parseFilesGlob('./app/**/*.@(vue|js|ts)');
 
       extractor
         .createJsParser([
@@ -84,7 +84,7 @@ export default function gettextExtractorForWordpress(options) {
             }
           }),
         ])
-        .parseFilesGlob('./src/**/*.@(vue|js|ts)');
+        .parseFilesGlob('./app/**/*.@(vue|js|ts)');
 
       extractor
         .createJsParser([
@@ -97,7 +97,7 @@ export default function gettextExtractorForWordpress(options) {
             }
           }),
         ])
-        .parseFilesGlob('./src/**/*.@(vue|js|ts)');
+        .parseFilesGlob('./app/**/*.@(vue|js|ts)');
 
       messages = extractor.getMessages();
       

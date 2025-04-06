@@ -7,10 +7,10 @@
 export {}
 declare global {
   const EffectScope: typeof import('vue')['EffectScope']
-  const __: typeof import('./src/utils/i18n.js')['__']
-  const _n: typeof import('./src/utils/i18n.js')['_n']
-  const _nx: typeof import('./src/utils/i18n.js')['_nx']
-  const _x: typeof import('./src/utils/i18n.js')['_x']
+  const __: typeof import('./app/utils/i18n.js')['__']
+  const _n: typeof import('./app/utils/i18n.js')['_n']
+  const _nx: typeof import('./app/utils/i18n.js')['_nx']
+  const _x: typeof import('./app/utils/i18n.js')['_x']
   const a: typeof import('./src/utils/a')['a']
   const asyncComputed: typeof import('@vueuse/core')['asyncComputed']
   const autoResetRef: typeof import('@vueuse/core')['autoResetRef']
@@ -95,11 +95,11 @@ declare global {
   const resolveComponent: typeof import('vue')['resolveComponent']
   const resolveRef: typeof import('@vueuse/core')['resolveRef']
   const resolveUnref: typeof import('@vueuse/core')['resolveUnref']
-  const setLocaleData: typeof import('./src/utils/i18n.js')['setLocaleData']
+  const setLocaleData: typeof import('./app/utils/i18n.js')['setLocaleData']
   const shallowReactive: typeof import('vue')['shallowReactive']
   const shallowReadonly: typeof import('vue')['shallowReadonly']
   const shallowRef: typeof import('vue')['shallowRef']
-  const sprintf: typeof import('./src/utils/i18n.js')['sprintf']
+  const sprintf: typeof import('./app/utils/i18n.js')['sprintf']
   const syncRef: typeof import('@vueuse/core')['syncRef']
   const syncRefs: typeof import('@vueuse/core')['syncRefs']
   const templateRef: typeof import('@vueuse/core')['templateRef']
@@ -322,10 +322,10 @@ declare module 'vue' {
   interface GlobalComponents {}
   interface ComponentCustomProperties {
     readonly EffectScope: UnwrapRef<typeof import('vue')['EffectScope']>
-    readonly __: UnwrapRef<typeof import('./src/utils/i18n.js')['__']>
-    readonly _n: UnwrapRef<typeof import('./src/utils/i18n.js')['_n']>
-    readonly _nx: UnwrapRef<typeof import('./src/utils/i18n.js')['_nx']>
-    readonly _x: UnwrapRef<typeof import('./src/utils/i18n.js')['_x']>
+    readonly __: UnwrapRef<typeof import('./app/utils/i18n.js')['__']>
+    readonly _n: UnwrapRef<typeof import('./app/utils/i18n.js')['_n']>
+    readonly _nx: UnwrapRef<typeof import('./app/utils/i18n.js')['_nx']>
+    readonly _x: UnwrapRef<typeof import('./app/utils/i18n.js')['_x']>
     readonly asyncComputed: UnwrapRef<typeof import('@vueuse/core')['asyncComputed']>
     readonly autoResetRef: UnwrapRef<typeof import('@vueuse/core')['autoResetRef']>
     readonly computed: UnwrapRef<typeof import('vue')['computed']>
@@ -408,11 +408,11 @@ declare module 'vue' {
     readonly resolveComponent: UnwrapRef<typeof import('vue')['resolveComponent']>
     readonly resolveRef: UnwrapRef<typeof import('@vueuse/core')['resolveRef']>
     readonly resolveUnref: UnwrapRef<typeof import('@vueuse/core')['resolveUnref']>
-    readonly setLocaleData: UnwrapRef<typeof import('./src/utils/i18n.js')['setLocaleData']>
+    readonly setLocaleData: UnwrapRef<typeof import('./app/utils/i18n.js')['setLocaleData']>
     readonly shallowReactive: UnwrapRef<typeof import('vue')['shallowReactive']>
     readonly shallowReadonly: UnwrapRef<typeof import('vue')['shallowReadonly']>
     readonly shallowRef: UnwrapRef<typeof import('vue')['shallowRef']>
-    readonly sprintf: UnwrapRef<typeof import('./src/utils/i18n.js')['sprintf']>
+    readonly sprintf: UnwrapRef<typeof import('./app/utils/i18n.js')['sprintf']>
     readonly syncRef: UnwrapRef<typeof import('@vueuse/core')['syncRef']>
     readonly syncRefs: UnwrapRef<typeof import('@vueuse/core')['syncRefs']>
     readonly templateRef: UnwrapRef<typeof import('@vueuse/core')['templateRef']>

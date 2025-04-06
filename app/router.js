@@ -9,12 +9,12 @@ const sanitizeRoutePath = (path) => {
     return "";
   }
 
-  let sanitized = path.endsWith('/') ? path.slice(0, -1) : path;
-  sanitized = sanitized.replace(/\//g, '-');
-  sanitized = sanitized.replace(/\[|\]/g, '');
+  let sanitized = path.endsWith("/") ? path.slice(0, -1) : path;
+  sanitized = sanitized.replace(/\//g, "-");
+  sanitized = sanitized.replace(/\[|\]/g, "");
 
   return sanitized;
-}
+};
 
 const ensureTrailingSlash = (url) => {
   const [path, query] = url.split("?");
@@ -25,7 +25,7 @@ const ensureTrailingSlash = (url) => {
   }
 
   return newPath;
-}
+};
 
 const localRoutes = [
   {
@@ -55,10 +55,14 @@ router.beforeEach((to, _, next) => {
 
 router.afterEach((to, from) => {
   if (from.name) {
-    document.body.classList.remove(sanitizeRoutePath(`{plugin-shortcode}-${from.name}`));
+    document.body.classList.remove(
+      sanitizeRoutePath(`{plugin-shortcode}-${from.name}`),
+    );
   }
   if (to.name) {
-    document.body.classList.add(sanitizeRoutePath(`{plugin-shortcode}-${to.name}`));
+    document.body.classList.add(
+      sanitizeRoutePath(`{plugin-shortcode}-${to.name}`),
+    );
   }
 });
 

@@ -31,8 +31,8 @@ export default defineConfig(() => {
           unheadVueComposablesImports
         ],
         dirs: [
-          './src/utils/**',
-          './src/composables/**',
+          './app/utils/**',
+          './app/composables/**',
         ],
         vueTemplate: true,
         eslintrc: {
@@ -52,7 +52,7 @@ export default defineConfig(() => {
     ],
     resolve: {
       alias: {
-        '@': fileURLToPath(new URL('./src', import.meta.url))
+        '@': fileURLToPath(new URL('./app', import.meta.url))
       }
     },
     server: {
@@ -64,7 +64,7 @@ export default defineConfig(() => {
     build: {
       lib: {
         name: '{plugin}',
-        entry: path.resolve(__dirname, `src/main.js`),
+        entry: path.resolve(__dirname, `app/main.js`),
         formats: ['es'],
         fileName: filename
       },
@@ -73,7 +73,7 @@ export default defineConfig(() => {
           replace({
             preventAssignment: true,
             delimiters: ['', ''],
-            include: 'src/**/*.vue',
+            include: 'app/**/*.vue',
             values: {
               [process.cwd()]: '',
               [__dirname]: '',

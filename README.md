@@ -53,7 +53,7 @@ get_footer();
    ├─ plugins
    │  │
    │  └─ {your-plugin-folder}
-   │     ├─ src
+   │     ├─ app
    │     │  └─ App.vue
    │     ├─ package.json
    │     └─ ld-{plugin-shortcode}.php
@@ -124,7 +124,7 @@ Contrary to a classic global declaration, it will preserve typings, IDE completi
 
 ## File-Based Routing
 
-This project uses Vue Router with a file-based routing approach. Every Vue file inside the `src/pages/` directory creates a corresponding URL (or route) that displays the contents of the file. For example, `src/pages/about.vue` will be accessible at `/about`. The router configuration is automatically generated based on the file structure, and Vue Router's dynamic imports ensure code-splitting to ship the minimum amount of JavaScript for each requested route.
+This project uses Vue Router with a file-based routing approach. Every Vue file inside the `app/pages/` directory creates a corresponding URL (or route) that displays the contents of the file. For example, `app/pages/about.vue` will be accessible at `/about`. The router configuration is automatically generated based on the file structure, and Vue Router's dynamic imports ensure code-splitting to ship the minimum amount of JavaScript for each requested route.
 
 ```
 pages/
