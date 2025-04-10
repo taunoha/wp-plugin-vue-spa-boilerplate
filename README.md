@@ -16,83 +16,6 @@ This starter is particularly useful when building complex interactive applicatio
 
 The SPA approach here provides a fluid, app-like experience while still leveraging WordPress's user management, authentication, and content management capabilities. The Vue Router integration allows for clean URLs (e.g., `/members/search/`, `/members/profile/123/`) while maintaining browser history and deep-linking support.
 
-## Before you start
-
-> [!NOTE]
-> Prerequisites
-> * Familiarity with the command line
-> * Install [Node.js](https://nodejs.org/en) version 22.0 (LTS) or higher LTS
-
-### 👉  `npm install`
-* Install the dependencies in the local node_modules folder.
-
-### 👉  `npm run rename`
-* Rename placeholder strings in files
-* The script will ask you for:
-  * Plugin name (e.g. "Member Directory")
-  * Application path (e.g. "/members", "/partner/self-service")
-
-The path will be used to initialize the application: ``example.com/members/`` or ``example.com/partner/self-service/``
-
-## Get Started
-
-To get started, create a new file in your theme folder ``page-{plugin-shortcode}.php`` with the minimal content of:
-
-```php
-<?php
-
-get_header();
-echo do_shortcode('[{plugin-shortcode}]');
-get_footer();
-```
-
-### Structure
-```
-└─ wp-content
-   │
-   ├─ plugins
-   │  │
-   │  └─ {your-plugin-folder}
-   │     ├─ app
-   │     │  └─ App.vue
-   │     ├─ package.json
-   │     └─ ld-{plugin-shortcode}.php
-   │
-   └─ themes
-      │
-      └─ {your-theme-folder}
-         └─ page-{plugin-shortcode}.php
-```
-
-### Permalinks and Rewrite Rules
-
-This plugin implements custom rewrite rules to handle SPA routing. These rules are automatically registered when the plugin is activated. However, if you experience any 404 errors or routing issues:
-
-1. Go to WP Admin > Settings > Permalinks
-2. Simply click "Save Changes" to flush the rewrite rules cache
-
-This step ensures WordPress properly recognizes the plugin's custom URL structure.
-
-## Development
-
-### 👉  `npm run dev`
-* Use to compile and run the code in development mode.
-* Watches for any changes and reports back any errors in your code.
-* Automatically enables HMR
-  
-### 👉  `npm run lint`
-* Check your source code for programmatic and stylistic errors, and format your code.
-* Formats your source code
-
-### 👉  `npm run build`
-- Check your source code for programmatic and stylistic errors, and format your code.
-- Builds production code inside `dist` folder.
-- Will extract translatable strings from your code and generate the `languages/messages.php` file.
-
-## ❗️ Deploy
-
-The `dist` folder will be overridden each time you run `npm run build` or `npm run dev`. Do not commit this folder to version control. If you use any CI/CD pipeline, make sure to trigger the build process as part of your deployment workflow.
-  
 ## 🌶️ Auto-imports
 
 I have set up auto-imports for components, composables, Vue.js APIs, and your utilities inside the ``utils`` folder. This includes:
@@ -194,3 +117,80 @@ This plugin is compatible with popular WordPress translation plugins like WPML, 
 - Manage translations through the plugins' translation interfaces
 - Use the plugins' language switching functionality
 - Maintain translations across different language versions of your site
+
+## Before you start
+
+> [!NOTE]
+> Prerequisites
+> * Familiarity with the command line
+> * Install [Node.js](https://nodejs.org/en) version 22.0 (LTS) or higher LTS
+
+### 👉  `npm install`
+* Install the dependencies in the local node_modules folder.
+
+### 👉  `npm run rename`
+* Rename placeholder strings in files
+* The script will ask you for:
+  * Plugin name (e.g. "Member Directory")
+  * Application path (e.g. "/members", "/partner/self-service")
+
+The path will be used to initialize the application: ``example.com/members/`` or ``example.com/partner/self-service/``
+
+## Get Started
+
+To get started, create a new file in your theme folder ``page-{plugin-shortcode}.php`` with the minimal content of:
+
+```php
+<?php
+
+get_header();
+echo do_shortcode('[{plugin-shortcode}]');
+get_footer();
+```
+
+### Structure
+```
+└─ wp-content
+   │
+   ├─ plugins
+   │  │
+   │  └─ {your-plugin-folder}
+   │     ├─ app
+   │     │  └─ App.vue
+   │     ├─ package.json
+   │     └─ ld-{plugin-shortcode}.php
+   │
+   └─ themes
+      │
+      └─ {your-theme-folder}
+         └─ page-{plugin-shortcode}.php
+```
+
+### Permalinks and Rewrite Rules
+
+This plugin implements custom rewrite rules to handle SPA routing. These rules are automatically registered when the plugin is activated. However, if you experience any 404 errors or routing issues:
+
+1. Go to WP Admin > Settings > Permalinks
+2. Simply click "Save Changes" to flush the rewrite rules cache
+
+This step ensures WordPress properly recognizes the plugin's custom URL structure.
+
+## Development
+
+### 👉  `npm run dev`
+* Use to compile and run the code in development mode.
+* Watches for any changes and reports back any errors in your code.
+* Automatically enables HMR
+  
+### 👉  `npm run lint`
+* Check your source code for programmatic and stylistic errors, and format your code.
+* Formats your source code
+
+### 👉  `npm run build`
+- Check your source code for programmatic and stylistic errors, and format your code.
+- Builds production code inside `dist` folder.
+- Will extract translatable strings from your code and generate the `languages/messages.php` file.
+
+## ❗️ Deploy
+
+The `dist` folder will be overridden each time you run `npm run build` or `npm run dev`. Do not commit this folder to version control. If you use any CI/CD pipeline, make sure to trigger the build process as part of your deployment workflow.
